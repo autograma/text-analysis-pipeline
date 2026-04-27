@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+*.pyc
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+resultados/tablas/*
+!resultados/tablas/.gitkeep
+resultados/graficos/*
+!resultados/graficos/.gitkeep
+.pytest_cache/
+.DS_Store

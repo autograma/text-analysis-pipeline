@@ -1,0 +1,7 @@
+{
+    "hedonic": ["hedonic", "well-being", "happiness", "pleasure", "bliss"],
+    "suffering": ["suffering", "pain", "malaise", "agony", "distress"],
+    "biotech": ["biotechnology", "genetic", "crispr", "genome", "engineering"],
+    "ethics": ["ethics", "moral", "utilitarian", "consequentialism", "rights"],
+    "consciousness": ["consciousness", "qualia", "sentience", "awareness", "phenomenal"]
+}
