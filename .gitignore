@@ -5,9 +5,9 @@ data/raw/*
 !data/raw/.gitkeep
 data/processed/*
 !data/processed/.gitkeep
-resultados/tablas/*
-!resultados/tablas/.gitkeep
-resultados/graficos/*
-!resultados/graficos/.gitkeep
+results/tables/*
+!results/tables/.gitkeep
+results/charts/*
+!results/charts/.gitkeep
 .pytest_cache/
 .DS_Store
