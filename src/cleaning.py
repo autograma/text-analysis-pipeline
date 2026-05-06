@@ -14,15 +14,16 @@ STOPWORDS = {
 }
 
 def read_file(path: str) -> str:
-    """Read a .txt file and return its content as a string.
 
-    Args:
-        path: Path to the .txt file. "C:\Users\lucia\Desktop\AP\biotechnology-abolish.pdf"
+path = Path("data/raw/biotechnology-abolish.txt")
+    """Read a .txt file and return its content as a string."""
 
-    Returns:
+    return
         File content as a string.
-
-    Raises:
+            
+    if not Path(path).exists():
+        raise FileNotFoundError(f"File not found: {path}")
+    ...
         FileNotFoundError: If the file does not exist.
         ValueError: If the file is empty.
     """
