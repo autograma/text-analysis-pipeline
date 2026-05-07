@@ -1,12 +1,11 @@
 """Text cleaning module: read, clean, and save processed text."""
 
-
-logger = logging.getLogger(__name__) 
 import logging
 import string
 from pathlib import Path
 
-path = Path("data/raw/biotechnology-abolish.txt")
+logger = logging.getLogger(__name__) 
+#path = Path("data/raw/biotechnology-abolish.txt")
 
 STOPWORDS = {
     "the", "a", "an", "is", "are", "was", "were", "of", "in", "to",
@@ -14,20 +13,20 @@ STOPWORDS = {
     "not", "it", "this", "that",
 }
 
-def read_file(path: str) -> str:
-    arch = open(path,'r',encoding='utf-8')
-    lines = arch.readlines()
-    arch.close()
-
-    """Read a .txt file and return its content as a string."""
-
-    return lines as str
+def read_file(path: data/raw/biotechnology-abolish.txt) -> str:
     
-    if len(lines) == 0:
-        raise ValueError: (f"File not found: {path}")
+    """Read a .txt file and return its content as a string."""    
+    
+    with open(path,'r',encoding='utf-8') as 'f':
+    content = f.read()
+
+    ""ValueError: If the file is empty."""
+    if not content.strip():
+        raise ValueError(f"File not found: {path}")
+        return content
     ...
         FileNotFoundError: If the file does not exist.
-        ValueError: If the file is empty.
+
     """
     # TODO 1: convertir path a Path y chequear que exista; si no, raise FileNotFoundError
     # TODO 2: abrir el archivo con encoding='utf-8' y leer su contenido
