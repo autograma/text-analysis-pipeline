@@ -17,15 +17,15 @@ def read_file(path: data/raw/biotechnology-abolish.txt) -> str:
     
     """Read a .txt file and return its content as a string."""    
     
-    with open(path,'r',encoding='utf-8') as 'f':
-    content = f.read()
+    with open(path,'r',encoding='utf-8') as f:
+        content = f.read()
 
-    ""ValueError: If the file is empty."""
+    """ValueError: If the file is empty."""
     if not content.strip():
         raise ValueError(f"File not found: {path}")
-        return content
-    ...
-        FileNotFoundError: If the file does not exist.
+        
+    return content
+
 
     """
     # TODO 1: convertir path a Path y chequear que exista; si no, raise FileNotFoundError
