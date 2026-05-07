@@ -6,6 +6,7 @@ import logging
 import string
 from pathlib import Path
 
+path = Path("data/raw/biotechnology-abolish.txt")
 
 STOPWORDS = {
     "the", "a", "an", "is", "are", "was", "were", "of", "in", "to",
@@ -14,15 +15,16 @@ STOPWORDS = {
 }
 
 def read_file(path: str) -> str:
+    arch = open(path,'r',encoding='utf-8')
+    lines = arch.readlines()
+    arch.close()
 
-path = Path("data/raw/biotechnology-abolish.txt")
     """Read a .txt file and return its content as a string."""
 
-    return
-        File content as a string.
-            
-    if not Path(path).exists():
-        raise FileNotFoundError(f"File not found: {path}")
+    return lines as str
+    
+    if len(lines) == 0:
+        raise ValueError: (f"File not found: {path}")
     ...
         FileNotFoundError: If the file does not exist.
         ValueError: If the file is empty.
@@ -34,6 +36,7 @@ path = Path("data/raw/biotechnology-abolish.txt")
 
 
 def clean_text(text: str) -> list[str]:
+        
     """Lowercase, strip punctuation, remove stopwords, return clean words.
 
     Args:
