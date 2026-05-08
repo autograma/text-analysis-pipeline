@@ -62,14 +62,18 @@ def clean_text(text: str) -> list[str]:
         cleaned.append(word)
 
     return cleaned
-
+    
 def save_processed(words: list[str], output_path: str) -> None:
     """Write cleaned words to a file, one per line.
 
     Args:
-        words: List of clean words.
-        output_path: Path where the file will be written.
+        words: List of clean words to save.
+        output_path: Path where the file will be written. Parent
+            directories are created if they do not exist.
     """
-    # TODO 1: asegurarse de que el directorio padre existe (Path(...).parent.mkdir(parents=True, exist_ok=True))
-    # TODO 2: abrir output_path en modo 'w' con encoding='utf-8'
-    # TODO 3: escribir cada palabra en una línea
+    file_path = Path(output_path)
+    file_path.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(file_path, "w", encoding="utf-8") as f:
+        for word in words:
+            f.write(word + "\n")
