@@ -13,43 +13,56 @@ STOPWORDS = {
     "not", "it", "this", "that",
 }
 
-def read_file(path: data/raw/biotechnology-abolish.txt) -> str:
-    
-    """Read a .txt file and return its content as a string."""    
-    
-    with open(path,'r',encoding='utf-8') as f:
+def read_file(path: str) -> str:
+    """Read a .txt file and return its content as a string.
+
+    Args:
+        path: Path to the .txt file to read.
+
+    Returns:
+        The file content as a single string.
+
+    Raises:
+        FileNotFoundError: If the file does not exist.
+        ValueError: If the file is empty or contains only whitespace.
+    """
+    file_path = Path(path)
+
+    if not file_path.exists():
+        raise FileNotFoundError(f"File not found: {file_path}")
+
+    with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    """ValueError: If the file is empty."""
     if not content.strip():
-        raise ValueError(f"File not found: {path}")
-        
+        raise ValueError(f"File is empty: {file_path}")
+
     return content
 
-
-    """
-    # TODO 1: convertir path a Path y chequear que exista; si no, raise FileNotFoundError
-    # TODO 2: abrir el archivo con encoding='utf-8' y leer su contenido
-    # TODO 3: si el contenido (sin espacios) está vacío, raise ValueError
-    # TODO 4: return contenido
-
-
 def clean_text(text: str) -> list[str]:
-        
-    """Lowercase, strip punctuation, remove stopwords, return clean words.
+    """Lowercase, strip punctuation, remove stopwords, and discard pure-numeric tokens.
 
     Args:
         text: Raw text to clean.
 
     Returns:
-        List of clean words (lowercased, no punctuation, no stopwords, no pure-numeric tokens).
+        List of clean words. Empty if no token survives the filters.
     """
-    # TODO 1: pasar texto a minúsculas y dividir en tokens con .split()
-    # TODO 2: para cada token, quitar puntuación con .strip(string.punctuation)
-    # TODO 3: descartar el token si: queda vacío, está en STOPWORDS, o es .isdigit()
-    # TODO 4: return la lista de tokens que sobrevivieron
+    tokens = text.lower().split()
 
-###!
+    cleaned = []
+    for token in tokens:
+        word = token.strip(string.punctuation)
+        if not word:
+            continue
+        if word in STOPWORDS:
+            continue
+        if word.isdigit():
+            continue
+        cleaned.append(word)
+
+    return cleaned
+
 def save_processed(words: list[str], output_path: str) -> None:
     """Write cleaned words to a file, one per line.
 
