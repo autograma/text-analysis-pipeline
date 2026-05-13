@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 STOPWORDS = {
     "the", "a", "an", "is", "are", "was", "were", "of", "in", "to",
     "for", "on", "with", "at", "by", "from", "and", "or", "but",
-    "not", "it", "this", "that",
+    "not", "it", "this", "that", "ii" "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"
 }
 
 def read_file(path: str) -> str:
