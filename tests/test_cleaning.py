@@ -37,8 +37,7 @@ def test_clean_text_discards_numbers():
 
 
 def test_clean_text_filters_roman_numerals():
-    assert clean_text("chapter iv section v") == ["chapter", "section"]
-
+    assert clean_text("chapter ii section iii of iv") == ["chapter", "section"]
 
 def test_clean_text_strips_surrounding_punctuation():
     """Punctuation around a word is stripped, the word survives."""
