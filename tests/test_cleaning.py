@@ -36,11 +36,20 @@ def test_clean_text_discards_numbers():
     assert "papers" in result
 
 
+def test_clean_text_filters_roman_numerals():
+    assert clean_text("chapter iv section v") == ["chapter", "section"]
+
+
 def test_clean_text_strips_surrounding_punctuation():
     """Punctuation around a word is stripped, the word survives."""
     result = clean_text("hello, world!")
     assert "hello" in result
     assert "world" in result
+
+
+def test_clean_text_preserves_internal_apostrophe():
+    result = clean_text("don't worry")
+    assert "don't" in result 
 
 
 # ---- read_file ----
