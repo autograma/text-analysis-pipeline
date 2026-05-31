@@ -15,8 +15,8 @@ def count_frequency(words: list[str]) -> dict[str, int]:
     Args:
     words: List of words to count.
     
-    Returns
-    Dictionatry mapping each unique word to its count.
+    Returns:
+    Dictionary mapping each unique word to its count.
     Empty if input list is empty
     """
     freq = {}
@@ -28,18 +28,11 @@ def count_frequency(words: list[str]) -> dict[str, int]:
             freq[word]+=1
 
     return freq
-"""
-def frequency_dataframe(freq_dict_: dict) -> pd.DataFrame:
-    freq = pd.DataFrame(list(freq_dict_.items()), columns=['Word', 'Frequency'])
-    return freq
 
-"""
 
 def frequency_to_dataframe(freq_dict: dict) -> pd.DataFrame:
 
-    """Convert a {word: count} dict into a sorted DataFrame."""
-
-    """
+    """Convert a {word: count} dict into a sorted DataFrame.
     Args:
         freq_dict: Dictionary mapping words to their frequencies
 
@@ -48,6 +41,7 @@ def frequency_to_dataframe(freq_dict: dict) -> pd.DataFrame:
         frequency descending. Returns an empty DataFrame with those
         columns if freq_dict is empty.
     """
+    
     df = (
         pd.DataFrame(list(freq_dict.items()), columns=["word", "frequency"])
         .sort_values(by="frequency", ascending=False)
