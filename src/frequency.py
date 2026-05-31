@@ -23,9 +23,9 @@ def count_frequency(words: list[str]) -> dict[str, int]:
     for word in words:
 
         if word not in freq:
-            freq[word]=1
+            freq[word]= 1
         else:
-            freq[word]+=1
+            freq[word]+= 1
 
     return freq
 
@@ -41,7 +41,6 @@ def frequency_to_dataframe(freq_dict: dict) -> pd.DataFrame:
         frequency descending. Returns an empty DataFrame with those
         columns if freq_dict is empty.
     """
-    
     df = (
         pd.DataFrame(list(freq_dict.items()), columns=["word", "frequency"])
         .sort_values(by="frequency", ascending=False)
